@@ -1,5 +1,4 @@
-let display = document.querySelector("#response");
-
+let displayPetByStatus = document.querySelector("#responseGetPetByStatus");
 // REQUEST SERVER DATA
 const REQ = new XMLHttpRequest();
 
@@ -15,9 +14,10 @@ function getAvaliblePets() {
             // QUICK WAY TO INSERT INTO HTML
             // document.querySelector('#response').innerHTML = REQ.response.title;
             // FUCTION TO INSERT INTO HTML
-            buildPString(display, 1);
+            buildPString(displayPetByStatus, 1);
         } else {
             console.log(`Oh no! You should handle the Error(s)!`);
+            buildPString(displayPetByStatus, 2);
         }
     }
     REQ.open('GET', 'http://petstore.swagger.io/v2/pet/findByStatus?status=available'); 
@@ -44,7 +44,7 @@ function buildPString(placeholder, number){
         newPTag.appendChild(newTextNode);
         placeholder.appendChild(newPTag);
     } if (number === 2) {
-        newTextNode = document.createTextNode(`Some data has been posted! Check the console log to see what.`);
+        newTextNode = document.createTextNode(`Sorry, something has gone wrong.`);
         newPTag.appendChild(newTextNode);
         placeholder.appendChild(newPTag);
     } 
