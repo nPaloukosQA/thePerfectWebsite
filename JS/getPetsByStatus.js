@@ -1,4 +1,5 @@
-let displayPetByStatus = document.querySelector("#responseGetPetByStatus");
+let displayPetByStatus = document.querySelector("#available");
+
 // REQUEST SERVER DATA
 const REQ = new XMLHttpRequest();
 
