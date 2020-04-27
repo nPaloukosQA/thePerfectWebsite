@@ -3,7 +3,7 @@
   padding: 0px;
 }
 body {
-  background-image: url("bg.jpg");
+  background-image: url("../Images/bg.jpg");
 }
 #header {
   width: 100%;
