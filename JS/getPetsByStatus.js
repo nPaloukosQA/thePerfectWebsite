@@ -40,7 +40,7 @@ function buildPString(placeholder, number){
             pets.forEach(element => {
                 petList.push(element.name);
             });
-        newTextNode = document.createTextNode(`You have retrieved some data! First 3 avalible pets: ${petList[0]}, ${petList[1]}, ${petList[2]}`); // could add a for loop to cycle through properties
+        newTextNode = document.createTextNode(`Here are the first 3 avalible pets: ${petList[0]}, ${petList[1]}, ${petList[2]}`); // could add a for loop to cycle through properties
         newPTag.appendChild(newTextNode);
         placeholder.appendChild(newPTag);
     } if (number === 2) {
