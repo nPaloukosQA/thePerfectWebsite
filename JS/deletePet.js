@@ -1,22 +1,24 @@
-let display = document.querySelector("#deletePet");
-
 // REQUEST SERVER DATA
 const REQ = new XMLHttpRequest();
 
-function deletePet() {
+let data = '{ "petId": "1" }';
+function deletePet(petId) {
+  let petId = document.getElementById("username1").value;
+  let petId = document.createElement(1);
   REQ.onload = () => {
-    if ((REQ.status === 200) & REQ.readyState) {
+    if ((REQ.status === 200) & (REQ.readyState === 4)) {
       console.log(REQ);
-      console.log(REQ.deletePet);
-      let pets = REQ.deletePet;
+      console.log(REQ.response);
+      document.querySelector("#delPet").innerHTML = REQ.response[0];
     } else {
       console.log(`Didn't delete!`);
     }
+    REQ.open("DELETE", "https://petstore.swagger.io/v2/pet/1", true);
   };
-  REQ.open("DELETE", "https://petstore.swagger.io/v2/pet/1");
   REQ.setRequestHeader("Content-Type", "Application/json");
+  // REQ.setRequestHeader('Access-Control-Allow-Origin', '*');
   REQ.responseType = "json";
-  REQ.send(null);
+  REQ.send();
 }
-let bRequest = document.querySelector("#deletePetRequest");
-bRequest.addEventListener("click", getAvaliblePets);
+let deletePetRequest = document.querySelector("#deletePetRequest");
+deletePetRequest.addEventListener("click", deletePet);
